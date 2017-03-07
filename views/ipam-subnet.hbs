@@ -1,0 +1,86 @@
+<div>
+    <div class="nopadding">
+        <div class="page-title noshadow uk-clearfix" style="padding-left: 15px;">
+            <p class="uk-display-inline-block">IP Address Management</p>
+            <div class="uk-float-right">
+                <div class="pagination uk-float-left uk-clearfix" style="margin-right: 5px;">
+                    <ul class="button-group">
+                        <li class="pagination">
+                            <a id="refreshSubnetGrid" href="#" class="btn md-btn-wave-light" style="border-radius: 3px; margin-right: 5px;" data-refresh-page>
+                                <i class="fa fa-large fa-refresh"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pagination uk-float-left">
+                    <ul class="button-group uk-float-left">
+                        <li class="pagination relative">
+                            <div class="right" data-uk-dropdown="{pos: 'bottom-right', mode: 'click'}" aria-haspopup="true" aria-expanded="false">
+                                <a href="#" class="btn no-ajaxy" data-notifications="ticket-actions" style="border-radius: 3px;"><i class="fa fa-large fa-tasks"></i></a>
+                                <div class="uk-dropdown uk-dropdown-xsmall uk-dropdown-bottom">
+                                    <ul class="uk-nav">
+                                        <li><a href="#" class="no-ajaxy" role="button" data-open-modal="createHostModal">Add Host</a></li>
+                                        <!--<hr style="margin: 0; padding: 0;">-->
+                                        <li><a href="#" class="no-ajaxy" role="button" data-open-modal="uploadImportModal">Import</a></li>
+                                        <hr style="margin: 5px 0;">
+                                        <li>
+                                            <a class="no-ajaxify" href="#" role="button" style="color: red;" data-delete-host>Delete Host</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="breads">
+            <ul class="uk-breadcrumb">
+                <li><a href="/plugins/ipam">IPAM</a></li>
+                <li class="uk-active"><span>{{data.active_subnet.name}}</span></li>
+            </ul>
+        </div>
+
+        <div class="full-height page-content no-border-top" style="position:relative;">
+            <div class="plugin-ipam-subnetList full-height" style="overflow: hidden;">
+                <table id="plugin-ipam-hostTable" class="pDataTable stripe">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Hostname</th>
+                        <th>IP Address</th>
+                        <th>Description</th>
+                        <th>Location</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each data.ips}}
+                        <tr class="subnet" data-ipam-ipObjOid="{{_id}}">
+                            <td>
+                                <input id="c_{{_id}}" type="checkbox" class="poloCheckbox" />
+                                <label for="c_{{_id}}"></label>
+                            </td>
+                            <td>{{hostname}}</td>
+                            <td>{{ipv4Formated}}</td>
+                            <td>{{description}}</td>
+                            <td>{{location}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{> createHostWindow }}
+{{> uploadImportModal }}
+
+{{#block 'plugincss'}}
+    <link rel="stylesheet" href="/plugins/ipam/css/ipam.css">
+{{/block}}
+
+{{#block 'js-plugins'}}
+    <script src="/plugins/ipam/js/ipam-subnet.js" type="text/javascript"></script>
+{{/block}}

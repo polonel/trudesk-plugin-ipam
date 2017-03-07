@@ -1,0 +1,19 @@
+{
+  "name": "ipam",
+  "version": "1.0.2",
+  "description": "IP Addres Management",
+  "github" : "http://github.com/polonel/trudesk-plugin-ipam",
+  "author" : {
+    "email" : "polonel@gmail.com",
+    "name" : "Chris Brame"
+  },
+  "menu": {
+    "main": {
+      "name": "IPAM",
+      "link": "/plugins/ipam",
+      "class": "material-icons",
+      "icon": "desktop_windows"
+    }
+  },
+  "permissions": "admin mod support"
+}

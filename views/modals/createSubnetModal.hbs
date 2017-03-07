@@ -1,0 +1,30 @@
+<div class="uk-modal" id="createSubnetModal">
+    <div class="uk-modal-dialog">
+        <form class="uk-form-stacked" id="createSubnetForm" action="#" method="POST">
+            <div class="uk-margin-medium-bottom">
+                <label for="form_name">Subnet Name</label>
+                <input type="text" class="md-input" id="form_name" name="form_name"
+                       data-validation="length"
+                       data-validation-length="min3"
+                       data-validation-error-msg="Please enter a valid subnet name. Subnet name must be at least 3 characters."
+                />
+            </div>
+            <div class="uk-margin-medium-bottom">
+                <label for="form_description">Description</label>
+                <input type="text" class="md-input" id="form_description" name="form_description"/>
+            </div>
+            <div class="uk-margin-medium-bottom">
+                <label for="form_subnet">Subnet (0.0.0.0/24)</label>
+                <input type="text" class="md-input" id="form_subnet" name="form_subnet"
+                       data-validation="length"
+                       data-validation-length="min10"
+                       data-validation-error-msg="Please enter subnet in 0.0.0.0/XX form."
+                />
+            </div>
+            <div class="uk-modal-footer uk-text-right">
+                <button type="button" class="md-btn md-btn-flat uk-modal-close">Close</button>
+                <button type="submit" class="md-btn md-btn-flat md-btn-flat-primary">Create Subnet</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="uk-modal" id="createHostModal">
+    <div class="uk-modal-dialog">
+        <form class="uk-form-stacked" id="createHostForm" action="#" method="POST">
+            <input type="hidden" name="form_subnet" value="{{data.active_subnet._id}}">
+            <div class="uk-margin-medium-bottom">
+                <label for="form_hostname">Host Name</label>
+                <input type="text" class="md-input" id="form_hostname" name="form_hostname"
+                       data-validation="length"
+                       data-validation-length="min3"
+                       data-validation-error-msg="Please enter a valid hostname. Hostname must be at least 3 characters."
+                />
+            </div>
+            <div class="uk-margin-medium-bottom">
+                <label for="form_description">Description</label>
+                <input type="text" class="md-input" id="form_description" name="form_description"/>
+            </div>
+            <div class="uk-margin-medium-bottom">
+                <label for="form_location">Location</label>
+                <input type="text" class="md-input" id="form_location" name="form_location"/>
+                <span class="uk-text-muted">Please enter street address of host or latitude,longitude</span>
+            </div>
+            <div class="uk-margin-medium-bottom">
+                <label for="form_ipaddress" class="uk-form-label">IP Address</label>
+                <select class="selectize-white selectize-noremove" name="form_ipaddress" id="form_ipaddress" data-md-selectize-inline data-md-selectize-bottom="true" data-md-selectize-maxOptions="5000">
+                    {{#each data.useableIps}}
+                        <option value="{{this}}">{{this}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="uk-modal-footer uk-text-right">
+                <button type="button" class="md-btn md-btn-flat uk-modal-close">Close</button>
+                <button type="submit" class="md-btn md-btn-flat md-btn-flat-primary">Add Host</button>
+            </div>
+        </form>
+    </div>
+</div>

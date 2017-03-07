@@ -1,0 +1,83 @@
+<div>
+    <div class="nopadding">
+        <div class="page-title noshadow uk-clearfix" style="padding-left: 15px;">
+            <p class="uk-display-inline-block">IP Address Management</p>
+            <div class="uk-float-right">
+                <div class="pagination uk-float-left uk-clearfix" style="margin-right: 5px;">
+                    <ul class="button-group">
+                        <li class="pagination">
+                            <a id="refreshTicketGrid" href="#" class="btn md-btn-wave-light" style="border-radius: 3px; margin-right: 5px;" ng-click="RefreshTicketGrid($event)">
+                                <i class="fa fa-large fa-refresh"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pagination uk-float-left">
+                    <ul class="button-group uk-float-left">
+                        <li class="pagination relative">
+                            <div class="right" data-uk-dropdown="{pos: 'bottom-right', mode: 'click'}" aria-haspopup="true" aria-expanded="false">
+                                <a href="#" class="btn no-ajaxy" data-notifications="ticket-actions" style="border-radius: 3px;"><i class="fa fa-large fa-tasks"></i></a>
+                                <div class="uk-dropdown uk-dropdown-xsmall uk-dropdown-bottom">
+                                    <ul class="uk-nav">
+                                        <li><a href="#" class="no-ajaxy" role="button" data-open-modal="createSubnetModal">Create Subnet</a></li>
+                                        <li><hr style="margin: 5px 0;"></li>
+                                        <li>
+                                            <a class="no-ajaxy" href="#" role="button" style="color: red;" data-delete-subnet>Delete Subnet</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="breads">
+            <ul class="uk-breadcrumb">
+                <li class="uk-active"><span>IPAM</span></li>
+            </ul>
+        </div>
+
+        <div class="full-height page-content no-border-top">
+            <div class="plugin-ipam-subnetList full-height">
+                <table id="plugin-ipam-subnetTable" class="pDataTable stripe">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Subnet</th>
+                        <th>Description</th>
+                        <th>Host Count</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each data.subnets}}
+                        <tr class="subnet" data-ipam-subnet="{{_id}}">
+                            <td>
+                                <input id="c_{{_id}}" type="checkbox" class="poloCheckbox" />
+                                <label for="c_{{_id}}"></label>
+                            </td>
+                            <td>{{name}}</td>
+                            <td>{{subnet}}</td>
+                            <td>{{description}}</td>
+                            <td style="text-align: right; padding-right: 25px;">{{hostcount}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{> createSubnetModal }}
+
+
+{{#block 'plugincss'}}
+    <link rel="stylesheet" href="/plugins/ipam/css/ipam.css">
+{{/block}}
+
+{{#block 'js-plugins'}}
+    <script src="/plugins/ipam/js/ipam.js" type="text/javascript"></script>
+{{/block}}

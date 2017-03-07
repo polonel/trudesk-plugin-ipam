@@ -1,0 +1,12 @@
+<div class="uk-modal" id="uploadImportModal">
+    <div class="uk-modal-dialog">
+        <form class="uk-form-stacked" id="uploadImportForm" action="/plugins/ipam/uploadhosts/" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="subnetId" value="{{data.active_subnet._id}}">
+            <input type="file" name="hostImportFile" />
+            <div class="uk-modal-footer uk-text-right">
+                <button type="button" class="md-btn md-btn-flat uk-modal-close">Close</button>
+                <button type="submit" class="md-btn md-btn-flat md-btn-flat-primary">Upload Hosts</button>
+            </div>
+        </form>
+    </div>
+</div>
