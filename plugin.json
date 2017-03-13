@@ -1,6 +1,6 @@
 {
   "name": "ipam",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "description": "IP Addres Management",
   "github" : "http://github.com/polonel/trudesk-plugin-ipam",
   "author" : {
