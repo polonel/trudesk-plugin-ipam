@@ -9,22 +9,6 @@ window.truRequire(['jquery', 'helpers', 'datatables', 'dt_ipaddress', 'uikit', '
     $(document).ready(function() {
         helpers.init();
 
-
-        // var url = new GMaps({
-        //     el: '#map',
-        //     size: [700, 300],
-        //     address: '141 Williamsboro St. Oxford NC, 27565',
-        //     // lat: -12.043333,
-        //     // lng: -77.028333,
-        //     markers: [
-        //         {address: '141 Williamsboro St. Oxford NC, 27565'}
-        //         // {lat: -12.043333, lng: -77.028333}
-        //     ]
-        // });
-
-        // $('<img/>').attr('src', url)
-        //     .appendTo('#map');
-
         var table = $('#plugin-ipam-hostTable');
         if (! $.fn.dataTable.isDataTable(table)) {
             table.dataTable({
