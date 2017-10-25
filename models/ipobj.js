@@ -13,7 +13,6 @@
  **/
 
 var mongoose    = require('mongoose');
-var _           = require('underscore');
 var ipv4        = require('ip-address').Address4;
 var netmask     = require('netmask').Netmask;
 
@@ -24,11 +23,11 @@ var COLLECTION = 'plugins-ipam-ipos';
 
 var ipobjSchema = mongoose.Schema({
     hostname:       { type: String, required: true },
-    ipaddress:  { type: Number, required: true},
-    mac:        'String',
-    subnet:     { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'plugins-ipam-subnets' },
-    description: 'String',
-    location: 'String',
+    ipaddress:      { type: Number, required: true},
+    mac:            'String',
+    subnet:         { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'plugins-ipam-subnets' },
+    description:    'String',
+    location:       'String',
 
     //Host Information Optional
     extras: [extraSchema]
@@ -36,7 +35,7 @@ var ipobjSchema = mongoose.Schema({
     timestamps: true
 });
 
-ipobjSchema.index({hostname: 1}, {subnet: 1});
+ipobjSchema.index({hostname: 1, subnet: 1});
 
 ipobjSchema.virtual('ipv4Formated').get(function() {
     return ipv4.fromBigInteger(this.ipaddress).correctForm();

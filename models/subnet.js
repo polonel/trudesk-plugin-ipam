@@ -13,14 +13,13 @@
  **/
 
 var mongoose    = require('mongoose');
-var _           = require('underscore');
 
 var COLLECTION = 'plugins-ipam-subnets';
 
 
 var subnetSchema = mongoose.Schema({
     name:       { type: String, required: true, unique: true },
-    subnet:    { type: String, required: true },
+    subnet:     { type: String, required: true },
     description: 'String'
 }, {
     timestamp: true
